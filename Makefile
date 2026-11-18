@@ -18,6 +18,7 @@ apps:
 # Link every pachage into the home folder
 link:
 	mkdir -p ~/.config
+	mkdir -p ~/.ssh && chmod 700 ~/.ssh
 	stow -v -t ~ $(PACHAGES)
 
 # Remove the links (the files in this repo are untouched)
@@ -38,6 +39,7 @@ update:
 	brew autoremove
 
 # Show what is outdated without changing anything
+# For Neovim plugins, run :Lazy check inside Neovim.
 status:
 	@echo "== Homebrew =="
 	@brew outdated
