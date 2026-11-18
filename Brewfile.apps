@@ -1,0 +1,45 @@
+# Personal apps. Installed by `make install-all` or `make apps`, never by `make install`.
+# Add or remove lines freely; this file is yours.
+
+# Command-line tools
+####
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Mac App Store command-line interface
+brew "mas"
+
+# Apps
+####
+# Anthropic's official Claude AI desktop app
+cask "claude"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Gecko based web browser
+cask "zen"
+# Application uninstaller
+cask "appcleaner"
+# System monitor for the menu bar
+cask "stats"
+# Break time reminder app
+cask "lookaway"
+# VPN client focusing on security
+cask "protonvpn"
+# Voice and text chat software
+cask "discord"
+# Sandbox construction video game
+cask "minecraft"
+# Run other operating systems in virtual machines
+cask "utm"
+#
+cask "slack"
+
+# Mac Apps store (sign in to the App Store app first)
+####
+mas "Keynote", id: 361285480
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
+mas "WhatsApp", id: 310633997
