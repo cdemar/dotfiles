@@ -1,11 +1,11 @@
 # Each name is a folder in this repo whose contents get linked into ~
-PACKAGES := zsh wezterm nvim
+PACKAGES := zsh wezterm nvim ssh
 
 .PHONY: install install-all apps link unlink sync update status
 
 # New Machine, essentials only: the tools this setup needs, then link configs
 install:
-	brew bundle --file-Brewfile
+	brew bundle --file=Brewfile
 	$(MAKE) link
 
 # New machine, everything: essentials plus personal apps
@@ -15,15 +15,15 @@ install-all: install apps
 apps:
 	brew bundle --file=Brewfile.apps
 
-# Link every pachage into the home folder
+# Link every package into the home folder
 link:
 	mkdir -p ~/.config
 	mkdir -p ~/.ssh && chmod 700 ~/.ssh
-	stow -v -t ~ $(PACHAGES)
+	stow -v --ignore='\.DS_Store' -t ~ $(PACKAGES)
 
 # Remove the links (the files in this repo are untouched)
 unlink:
-	stow -v -D -t ~ $(PACHAGES)
+	stow -v -D --ignore='\.DS_Store' -t ~ $(PACKAGES)
 
 # Get changes made on another machine
 sync:
@@ -35,7 +35,7 @@ update:
 	brew update
 	brew upgrade
 	brew upgrade --cask
-	brew clean up --prune=all
+	brew cleanup --prune=all
 	brew autoremove
 
 # Show what is outdated without changing anything
@@ -43,4 +43,4 @@ update:
 status:
 	@echo "== Homebrew =="
 	@brew outdated
-	@echo "== Neovim (update with :Lazy synch) =="
+	@echo "== Neovim (update with :Lazy sync) =="
